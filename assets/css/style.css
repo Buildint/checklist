@@ -901,6 +901,7 @@ section {
 	position:absolute;
 	padding:40px 40px 0 40px;
 	background: #000000;
+  border-radius: 10px;
 }
 .checklist-snip .atm-form,
 .checklist-snip .branch-form{
