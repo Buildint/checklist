@@ -56,3 +56,19 @@ function check(){
         }
     }
 }
+
+function check2(){
+    var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
+    var idarrayLength = idarray.length;
+    for(let i = 0; i <idarrayLength; i++){
+        var checkValue = $('#' + idarray[i]).val()
+        var dropdownValue = $('#d' + idarray[i]).val()
+        if(dropdownValue == 'Not Working') {
+            var daysData = $('#days_d' + idarray[i]).val()
+            var reasonData = $('#reason_d' + idarray[i]).val()
+            console.log(checkValue + ': ' + dropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData)
+        } else {
+            console.log(checkValue + ': ' + dropdownValue)
+        }
+    }
+}
