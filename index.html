@@ -87,11 +87,11 @@
             <div style="border: 0px;" class="card">
               <div class="checklist-box">
                 <div class="checklist-snip">
-                  <input id="tab-1" type="radio" name="tab" class="atm"><label for="tab-1" class="tab">ATM</label>
-                  <input id="tab-2" type="radio" name="tab" class="branch" checked><label for="tab-2" class="tab">Branch</label>
+                  <input id="tab-1" type="radio" name="tab" class="atm" checked><label for="tab-1" class="tab">ATM</label>
+                  <input id="tab-2" type="radio" name="tab" class="branch"><label for="tab-2" class="tab">Branch</label>
                   <div class="checklist-space">
                     <div class="atm-form">
-                      <!-- <div class="row">
+                      <div class="row">
                         <div class="col-6">
                           <div class="group">
                             <input id="name" type="text" class="input" placeholder="Branch name">
@@ -106,7 +106,7 @@
 
                         <div class="col-6">
                           <div class="group">
-                            <input id="manager name" type="text" class="input" placeholder="Manager name">
+                            <input id="manager_name" type="text" class="input" placeholder="Manager name">
                           </div>
                         </div>
   
@@ -124,42 +124,33 @@
 
                         <div class="col-6">
                           <div class="group">
-                            <input id="person name" type="text" class="input" placeholder="Site person name">
+                            <input id="person_name" type="text" class="input" placeholder="Site person name">
                           </div>
                         </div>
   
                         <div class="col-6">
                           <div class="group">
-                            <input id="person contact" type="text" class="input" placeholder="Contact no.">
+                            <input id="person_contact" type="text" class="input" placeholder="Contact no.">
                           </div>
                         </div>
 
                         <div class="group">
                           <div class="row">
                             <div class="col-6 form-check">
-                              <input id="visit_purpose" type="checkbox" class="check">
-                              <label for="visit_purpose"><span class="icon"></span> Visit Purpose</label>
+                              <input id="ac1" type="checkbox" name="branch_check" class="check" value="AC 1">
+                              <label for="ac1"><span class="icon"></span> AC 1</label>
                             </div>
                             <div class="col-6 form-dropdown">
-                              <select class="form-select">
-                                <option selected>Replace</option>
-                                <option selected>Repair</option>
+                              <select id="dac1" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
                               </select>
                             </div>
-                          </div>
-                        </div>
-
-                        <div class="group">
-                          <div class="row">
-                            <div class="col-6 form-check">
-                              <input id="iatm_box" type="checkbox" class="check">
-                              <label for="iatm_box"><span class="icon"></span> iATM Box</label>
+                            <div class="col-6 form-data">
+                              <input id="days_dac1" type="text" class="input" placeholder="No. of days">
                             </div>
-                            <div class="col-6 form-dropdown">
-                              <select class="form-select">
-                                <option selected>Replace</option>
-                                <option selected>Repair</option>
-                              </select>
+                            <div class="col-6 form-data">
+                              <input id="reason_dac1" type="text" class="input" placeholder="Reason">
                             </div>
                           </div>
                         </div>
@@ -167,14 +158,20 @@
                         <div class="group">
                           <div class="row">
                             <div class="col-6 form-check">
-                              <input id="iems_box" type="checkbox" class="check">
-                              <label for="iems_box"><span class="icon"></span> iEMS Box</label>
+                              <input id="ac2" type="checkbox" name="branch_check" class="check" value="AC 2">
+                              <label for="ac2"><span class="icon"></span> AC 2</label>
                             </div>
                             <div class="col-6 form-dropdown">
-                              <select class="form-select">
-                                <option selected>Replace</option>
-                                <option selected>Repair</option>
+                              <select id="dac2" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
                               </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_dac2" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_dac2" type="text" class="input" placeholder="Reason">
                             </div>
                           </div>
                         </div>
@@ -182,14 +179,20 @@
                         <div class="group">
                           <div class="row">
                             <div class="col-6 form-check">
-                              <input id="zion" type="checkbox" class="check">
-                              <label for="zion"><span class="icon"></span> Zion</label>
+                              <input id="lobby" type="checkbox" name="branch_check" class="check" value="Lobby Light">
+                              <label for="lobby"><span class="icon"></span> Lobby Light</label>
                             </div>
                             <div class="col-6 form-dropdown">
-                              <select class="form-select">
-                                <option selected>Replace</option>
-                                <option selected>Repair</option>
+                              <select id="dlobby" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
                               </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_dlobby" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_dlobby" type="text" class="input" placeholder="Reason">
                             </div>
                           </div>
                         </div>
@@ -197,14 +200,20 @@
                         <div class="group">
                           <div class="row">
                             <div class="col-6 form-check">
-                              <input id="wifi_switch" type="checkbox" class="check">
-                              <label for="wifi_switch"><span class="icon"></span> Wifi Switch</label>
+                              <input id="signage" type="checkbox" name="branch_check" class="check" value="Signage">
+                              <label for="signage"><span class="icon"></span> Signage</label>
                             </div>
                             <div class="col-6 form-dropdown">
-                              <select class="form-select">
-                                <option selected>Replace</option>
-                                <option selected>Repair</option>
+                              <select id="dsignage" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
                               </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_dsignage" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_dsignage" type="text" class="input" placeholder="Reason">
                             </div>
                           </div>
                         </div>
@@ -212,14 +221,20 @@
                         <div class="group">
                           <div class="row">
                             <div class="col-6 form-check">
-                              <input id="contactor" type="checkbox" class="check">
-                              <label for="contactor"><span class="icon"></span> Contactor</label>
+                              <input id="dvr" type="checkbox" name="branch_check" class="check" value="DVR">
+                              <label for="dvr"><span class="icon"></span> DVR</label>
                             </div>
                             <div class="col-6 form-dropdown">
-                              <select class="form-select">
-                                <option selected>Replace</option>
-                                <option selected>Repair</option>
+                              <select id="ddvr" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
                               </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_ddvr" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_ddvr" type="text" class="input" placeholder="Reason">
                             </div>
                           </div>
                         </div>
@@ -227,21 +242,195 @@
                         <div class="group">
                           <div class="row">
                             <div class="col-6 form-check">
-                              <input id="smart_meter" type="checkbox" class="check">
-                              <label for="smart_meter"><span class="icon"></span> iEMS Smart Meter</label>
+                              <input id="vsat" type="checkbox" name="branch_check" class="check" value="Vsat">
+                              <label for="vsat"><span class="icon"></span> Vsat</label>
                             </div>
                             <div class="col-6 form-dropdown">
-                              <select class="form-select">
-                                <option selected>Replace</option>
-                                <option selected>Repair</option>
+                              <select id="dvsat" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
                               </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_dvsat" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_dvsat" type="text" class="input" placeholder="Reason">
                             </div>
                           </div>
                         </div>
-                      </div> -->
 
-                      <div class="group">
-                        <input type="submit" class="button" value="Submit">
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="tnh" type="checkbox" name="branch_check" class="check" value="Temp. & Humidity">
+                              <label for="dvr"><span class="icon"></span> Temp & Humidity</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="dtnh" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_dtnh" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_dtnh" type="text" class="input" placeholder="Reason">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="occupany" type="checkbox" name="branch_check" class="check" value="Occupany">
+                              <label for="dvr"><span class="icon"></span> Occupany</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="doccupany" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_doccupany" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_doccupany" type="text" class="input" placeholder="Reason">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="earthing" type="checkbox" name="branch_check" class="check" value="Earthing">
+                              <label for="earthing"><span class="icon"></span> Earthing</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="dearthing" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_dearthing" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_dearthing" type="text" class="input" placeholder="Reason">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="atm_ups" type="checkbox" name="branch_check" class="check" value="UPS Charging & Output">
+                              <label for="atm_ups"><span class="icon"></span> UPS Charging & Output</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="datm_ups" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_datm_ups" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_datm_ups" type="text" class="input" placeholder="Reason">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="atm_iatm_box" type="checkbox" name="branch_check" class="check" value="iATM BOX">
+                              <label for="atm_iatm_box"><span class="icon"></span> iATM Box</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="datm_iatm_box" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_datm_iatm_box" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_datm_iatm_box" type="text" class="input" placeholder="Reason">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="atm_router" type="checkbox" name="branch_check" class="check" value="Router">
+                              <label for="atm_router"><span class="icon"></span> iATM Box</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="datm_router" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_datm_router" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_datm_router" type="text" class="input" placeholder="Reason">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="atm_battery" type="checkbox" name="branch_check" class="check" value="Battery">
+                              <label for="atm_battery"><span class="icon"></span> Battery</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="datm_battery" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_datm_battery" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_datm_battery" type="text" class="input" placeholder="Reason">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="atm_machine" type="checkbox" name="branch_check" class="check" value="ATM Machine">
+                              <label for="atm_machine"><span class="icon"></span> ATM Machine</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="datm_machine" class="form-select">
+                                <option selected>Working</option>
+                                <option>Not Working</option>
+                              </select>
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="days_datm_machine" type="text" class="input" placeholder="No. of days">
+                            </div>
+                            <div class="col-6 form-data">
+                              <input id="reason_datm_machine" type="text" class="input" placeholder="Reason">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <input onclick="check2()" type="submit" class="button" value="Submit">
+                        </div>
                       </div>
                     </div>
 
