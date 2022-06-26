@@ -41,7 +41,7 @@ dropdowns.on("change", function(e){
 })
 
 
-function check(){
+function submitform2(){
     var idarray = $.map($('input[name="branch_check"]:checked'), function(c){return c.id; })
     var idarrayLength = idarray.length;
     for(let i = 0; i <idarrayLength; i++){
@@ -57,7 +57,7 @@ function check(){
     }
 }
 
-function check2(){
+function submitform(){
     var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
     var idarrayLength = idarray.length;
     for(let i = 0; i <idarrayLength; i++){
@@ -71,4 +71,8 @@ function check2(){
             console.log(checkValue + ': ' + dropdownValue)
         }
     }
+}
+
+function reset(){
+    location.reload()
 }
