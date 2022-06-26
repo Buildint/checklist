@@ -87,11 +87,11 @@
             <div style="border: 0px;" class="card">
               <div class="checklist-box">
                 <div class="checklist-snip">
-                  <input id="tab-1" type="radio" name="tab" class="atm" checked><label for="tab-1" class="tab">ATM</label>
-                  <input id="tab-2" type="radio" name="tab" class="branch"><label for="tab-2" class="tab">Branch</label>
+                  <input id="tab-1" type="radio" name="tab" class="atm"><label for="tab-1" class="tab">ATM</label>
+                  <input id="tab-2" type="radio" name="tab" class="branch" checked><label for="tab-2" class="tab">Branch</label>
                   <div class="checklist-space">
                     <div class="atm-form">
-                      <div class="row">
+                      <!-- <div class="row">
                         <div class="col-6">
                           <div class="group">
                             <input id="name" type="text" class="input" placeholder="Branch name">
@@ -238,7 +238,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
 
                       <div class="group">
                         <input type="submit" class="button" value="Submit">
@@ -247,28 +247,162 @@
 
 
                     <div class="branch-form">
-                      <div class="group">
-                        <label for="user" class="label">Username</label>
-                        <input id="user" type="text" class="input" placeholder="Create your Username">
-                      </div>
-                      <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password" placeholder="Create your password">
-                      </div>
-                      <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
-                        <input id="pass" type="password" class="input" data-type="password" placeholder="Repeat your password" >
-                      </div>
-                      <div class="group">
-                        <label for="pass" class="label">Email Address</label>
-                        <input id="pass" type="text" class="input" placeholder="Enter your email address">
-                      </div>
-                      <div class="group">
-                        <input type="submit" class="button" value="Sign Up">
-                      </div>
-                      <div class="hr"></div>
-                      <div class="foot">
-                        <label for="tab-1">Already Member?</label>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="group">
+                            <input id="name" type="text" class="input" placeholder="Branch name">
+                          </div>
+                        </div>
+  
+                        <div class="col-6">
+                          <div class="group">
+                            <input id="code" type="text" class="input" placeholder="Branch code">
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="group">
+                            <input id="manager_name" type="text" class="input" placeholder="Manager name">
+                          </div>
+                        </div>
+  
+                        <div class="col-6">
+                          <div class="group">
+                            <input id="contact" type="text" class="input" placeholder="Contact No.">
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <div class="group">
+                            <input id="email" type="text" class="input" placeholder="Email id">
+                          </div>
+                        </div>
+
+                        <div class="col-6">
+                          <div class="group">
+                            <input id="person_name" type="text" class="input" placeholder="Site person name">
+                          </div>
+                        </div>
+  
+                        <div class="col-6">
+                          <div class="group">
+                            <input id="person_contact" type="text" class="input" placeholder="Contact no.">
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="visit_purpose" type="checkbox" name="branch_check" class="check" value="Visit Purpose">
+                              <label for="visit_purpose"><span class="icon"></span> Visit Purpose</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="dvisit_purpose" class="form-select">
+                                <option selected>Replace</option>
+                                <option>Repair</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="iatm_box" type="checkbox" name="branch_check" class="check" value="iATM Box">
+                              <label for="iatm_box"><span class="icon"></span> iATM Box</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="diatm_box" class="form-select">
+                                <option selected>Replace</option>
+                                <option>Repair</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="iems_box" type="checkbox" name="branch_check" class="check" value="iEMS Box">
+                              <label for="iems_box"><span class="icon"></span> iEMS Box</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="diems_box" class="form-select">
+                                <option selected>Replace</option>
+                                <option>Repair</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="zion" type="checkbox" name="branch_check" class="check" value="Zion">
+                              <label for="zion"><span class="icon"></span> Zion</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="dzion" class="form-select">
+                                <option selected>Replace</option>
+                                <option>Repair</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="wifi_switch" type="checkbox" name="branch_check" class="check" value="Wifi Switch">
+                              <label for="wifi_switch"><span class="icon"></span> Wifi Switch</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="dwifi_switch" class="form-select">
+                                <option selected>Replace</option>
+                                <option>Repair</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="contactor" type="checkbox" name="branch_check" class="check" value="Contactor">
+                              <label for="contactor"><span class="icon"></span> Contactor</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="dcontactor" class="form-select">
+                                <option selected>Replace</option>
+                                <option>Repair</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          <div class="row">
+                            <div class="col-6 form-check">
+                              <input id="smart_meter" type="checkbox" name="branch_check" class="check" value="iEMS Smart Meter">
+                              <label for="smart_meter"><span class="icon"></span> iEMS Smart Meter</label>
+                            </div>
+                            <div class="col-6 form-dropdown">
+                              <select id="dsmart_meter" class="form-select">
+                                <option selected>Replace</option>
+                                <option>Repair</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="group">
+                          
+                        </div>
+
+                        <div class="group">
+                          <input onclick="check()" type="submit" class="button" value="Submit">
+                        </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -346,10 +480,13 @@
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/app.js"></script>
+
 
 </body>
 
