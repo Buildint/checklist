@@ -1,3 +1,25 @@
+var firebaseConfig = {
+    apiKey: "AIzaSyCtFlIgLHOvliDQpsVW0YnZJZ7xVANICpk",
+    authDomain: "checklist-379ea.firebaseapp.com",
+    databaseURL: "https://checklist-379ea-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "checklist-379ea",
+    storageBucket: "checklist-379ea.appspot.com",
+    messagingSenderId: "248915298508",
+    appId: "1:248915298508:web:4424f89a61e04ba9e75a69",
+    measurementId: "G-YR85WETH2H"
+  };
+  
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+var database = firebase.database();
+ref = database.ref("test")
+
+ref.on('value', function (snapshot){
+    var test = snapshot.val()
+    console.log(test)
+})
+
+
 var checkboxes = $("input[type=checkbox]");
 var dropdowns = $("select[class=form-select]");
 var d = [];
