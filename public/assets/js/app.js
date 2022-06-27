@@ -12,11 +12,12 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 var database = firebase.database();
-ref = database.ref("test")
+ref = database.ref("DID")
 
 ref.on('value', function (snapshot){
     var test = snapshot.val()
-    console.log(test)
+    var testObj = Object.keys(test)
+    console.log(testObj)
 })
 
 
