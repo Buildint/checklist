@@ -527,10 +527,11 @@ section {
   height: 80px;
   transition: all 0.5s;
   z-index: 997;
+  background-color: rgb(0, 0, 0);
   transition: all 0.5s;
 }
 #header.header-scrolled {
-  background: rgba(39, 70, 133, 0.8);
+  background: rgb(0, 0, 0);
   height: 60px;
 }
 #header .logo h1 {
