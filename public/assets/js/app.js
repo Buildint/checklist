@@ -17,7 +17,9 @@ ref = database.ref("DID")
 ref.on('value', function (snapshot){
     var did = snapshot.val()
     var didObj = Object.keys(did)
+    var didObjValue = Object.values(did)
     var didObjLength = didObj.length
+    var didObjValueLength = didObjValue.length
     var html = '<div class=\"branch_id_dropdown\">'
     html+='<select id=\"code\" class=\"form-select\">'
     for(let i=0; i<didObjLength; i++){
@@ -26,6 +28,17 @@ ref.on('value', function (snapshot){
     html+='</select>'
     html+='</div>'
     document.getElementById('branch_id_dropdown').innerHTML = html
+
+    // dropdown2
+
+    var html2 = '<div class=\"branch_name_dropdown\">'
+    html2+='<select id=\"code_name\" class=\"form-select\">'
+    for(let i=0; i<didObjValueLength; i++){
+        html2+= '<option>'+didObjValue[i]+'</option>'
+    }
+    html2+='</select>'
+    html2+='</div>'
+    document.getElementById('branch_name_dropdown').innerHTML = html2
 })
 
 
@@ -91,7 +104,9 @@ function submitform2(){
 function submitform(){
     var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
     var idarrayLength = idarray.length;
-    console.log('Branch Name:' + $('#code').val())
+    console.log('Branch Code: ' + $('#code').val())
+    console.log('Branch Name: ' + $('#code_name').val())
+
     for(let i = 0; i <idarrayLength; i++){
         var checkValue = $('#' + idarray[i]).val()
         var dropdownValue = $('#d' + idarray[i]).val()
