@@ -1037,6 +1037,15 @@ font-size: 13px;
   display: none;
 }
 
+.atm-form .branch_id_dropdown .form-select{
+  border:none;
+  color: white;
+	padding:10px 20px;
+	border-radius:25px;
+	background-color:rgb(26, 26,26);
+  font-size: 13px;
+}
+
 .form-dropdown_2 .form-select{
   padding: 0 0 0 10px;
   color: white;

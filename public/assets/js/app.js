@@ -15,9 +15,17 @@ var database = firebase.database();
 ref = database.ref("DID")
 
 ref.on('value', function (snapshot){
-    var test = snapshot.val()
-    var testObj = Object.keys(test)
-    console.log(testObj)
+    var did = snapshot.val()
+    var didObj = Object.keys(did)
+    var didObjLength = didObj.length
+    var html = '<div class=\"branch_id_dropdown\">'
+    html+='<select id=\"code\" class=\"form-select\">'
+    for(let i=0; i<didObjLength; i++){
+        html+= '<option>'+didObj[i]+'</option>'
+    }
+    html+='</select>'
+    html+='</div>'
+    document.getElementById('branch_id_dropdown').innerHTML = html
 })
 
 
@@ -83,13 +91,14 @@ function submitform2(){
 function submitform(){
     var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
     var idarrayLength = idarray.length;
+    console.log('Branch Name:' + $('#code').val())
     for(let i = 0; i <idarrayLength; i++){
         var checkValue = $('#' + idarray[i]).val()
         var dropdownValue = $('#d' + idarray[i]).val()
         if(dropdownValue == 'Not Working') {
             var daysData = $('#days_d' + idarray[i]).val()
             var reasonData = $('#reason_d' + idarray[i]).val()
-            console.log(checkValue + ': ' + dropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData)
+            console.log(checkValue + ': ' + dropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData + ', Branch Name' + $('#branch_id_dropdown').val())
         } else {
             console.log(checkValue + ': ' + dropdownValue)
         }
