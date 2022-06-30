@@ -47,13 +47,29 @@ var dropdowns = $("select[class=form-select]");
 var d = [];
 var r = [];
 
+var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
+var idarrayLength = idarray.length;
+console.log(idarray)
+for(let i = 0; i <idarrayLength; i++){
+    $('#d' + idarray[i]).css('display', 'block')
+}
+
+var idarrayb = $.map($('input[name="branch_check"]:checked'), function(c){return c.id; })
+var idarraybLength = idarrayb.length;
+console.log(idarrayb)
+for(let i = 0; i <idarraybLength; i++){
+    $('#d' + idarrayb[i]).css('display', 'block')
+}
+
 checkboxes.on("change",function(e){ 
     if(!e.target.id){
         return;  
     } 
     if(e.target.checked){
+
         r.push(e.target.id);
         $("#d"+e.target.id).css("display", "block")
+        console.log(r)
     }
     else{
         var index = r.indexOf(e.target.id)
@@ -103,6 +119,7 @@ function submitform2(){
 
 function submitform(){
     var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
+    console.log(idarray)
     var idarrayLength = idarray.length;
     console.log('Branch Code: ' + $('#code').val())
     console.log('Branch Name: ' + $('#code_name').val())
