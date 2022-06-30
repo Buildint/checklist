@@ -73,7 +73,9 @@ checkboxes.on("change",function(e){
     }
 });
 
-
+// $('#datetimepicker1').datetimepicker({
+//     format: 'D-M-YYYY hh:mm:ss a'
+// });
 
 
 dropdowns.on("change", function(e){
