@@ -47,12 +47,6 @@ var dropdowns = $("select[class=form-select]");
 var d = [];
 var r = [];
 
-var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
-var idarrayLength = idarray.length;
-console.log(idarray)
-for(let i = 0; i <idarrayLength; i++){
-    $('#d' + idarray[i]).css('display', 'block')
-}
 
 var idarrayb = $.map($('input[name="branch_check"]:checked'), function(c){return c.id; })
 var idarraybLength = idarrayb.length;
@@ -61,24 +55,26 @@ for(let i = 0; i <idarraybLength; i++){
     $('#d' + idarrayb[i]).css('display', 'block')
 }
 
+var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
+var idarrayLength = idarray.length;
+for(let i = 0; i <idarrayLength; i++){
+    $('#d' + idarray[i]).css('display', 'block')
+}
+
 checkboxes.on("change",function(e){ 
     if(!e.target.id){
         return;  
     } 
     if(e.target.checked){
-
-        r.push(e.target.id);
         $("#d"+e.target.id).css("display", "block")
-        console.log(r)
     }
     else{
-        var index = r.indexOf(e.target.id)
-        if(~index){
-            r.splice(index, 1);
-            $("#d"+e.target.id).css("display", "none")
-        }               
+        $("#d"+e.target.id).css("display", "none")
     }
 });
+
+
+
 
 dropdowns.on("change", function(e){
     if(!e.target.id){
