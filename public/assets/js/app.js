@@ -95,6 +95,8 @@ statusDropdowns.on("change", function(e){
     }
 })
 
+
+
 idDropdown.on("change", function(e){
     var value = $("#code").val()
     ref.on("value", function (snapshot){
