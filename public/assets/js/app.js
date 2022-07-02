@@ -20,30 +20,31 @@ ref.on('value', function (snapshot){
     var didObjValue = Object.values(did)
     var didObjLength = didObj.length
     var didObjValueLength = didObjValue.length
-    var html = '<div class=\"branch_id_dropdown\">'
-    html+='<select id=\"code\" class=\"form-select\">'
+    var html = '<div class=\"atm_id_dropdown\">'
+    html+='<select style=\"width:100%;\" id=\"code\" class=\"form-select2\">'
     for(let i=0; i<didObjLength; i++){
         html+= '<option>'+didObj[i]+'</option>'
     }
     html+='</select>'
     html+='</div>'
-    document.getElementById('branch_id_dropdown').innerHTML = html
+    document.getElementById('atm_id_dropdown').innerHTML = html
 
     // dropdown2
 
-    var html2 = '<div class=\"branch_name_dropdown\">'
-    html2+='<select id=\"code_name\" class=\"form-select\">'
+    var html2 = '<div class=\"atm_name_dropdown\">'
+    html2+='<select style=\"width:100%;\" id=\"code_name\" class=\"form-select2\">'
     for(let i=0; i<didObjValueLength; i++){
         html2+= '<option>'+didObjValue[i]+'</option>'
     }
     html2+='</select>'
     html2+='</div>'
-    document.getElementById('branch_name_dropdown').innerHTML = html2
+    document.getElementById('atm_name_dropdown').innerHTML = html2
 })
 
 
 var checkboxes = $("input[type=checkbox]");
-var dropdowns = $("select[class=form-select]");
+var statusDropdowns = $("select[class=form-select]");
+var idDropdown = $("")
 var d = [];
 var r = [];
 
@@ -80,7 +81,7 @@ checkboxes.on("change",function(e){
     }
 });
 
-dropdowns.on("change", function(e){
+statusDropdowns.on("change", function(e){
     if(!e.target.id){
         return;  
     } 
@@ -106,13 +107,13 @@ function submitform2(){
     var idarrayLength = idarray.length;
     for(let i = 0; i <idarrayLength; i++){
         var checkValue = $('#' + idarray[i]).val()
-        var dropdownValue = $('#d' + idarray[i]).val()
-        if(dropdownValue == 'Not Working') {
+        var statusDropdownValue = $('#d' + idarray[i]).val()
+        if(statusDropdownValue == 'Not Working') {
             var daysData = $('#days_d' + idarray[i]).val()
             var reasonData = $('#reason_d' + idarray[i]).val()
-            console.log(checkValue + ': ' + dropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData)
+            console.log(checkValue + ': ' + statusDropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData)
         } else {
-            console.log(checkValue + ': ' + dropdownValue)
+            console.log(checkValue + ': ' + statusDropdownValue)
         }
     }
 }
@@ -126,13 +127,13 @@ function submitform(){
 
     for(let i = 0; i <idarrayLength; i++){
         var checkValue = $('#' + idarray[i]).val()
-        var dropdownValue = $('#d' + idarray[i]).val()
-        if(dropdownValue == 'Not Working') {
+        var statusDropdownValue = $('#d' + idarray[i]).val()
+        if(statusDropdownValue == 'Not Working') {
             var daysData = $('#days_d' + idarray[i]).val()
             var reasonData = $('#reason_d' + idarray[i]).val()
-            console.log(checkValue + ': ' + dropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData + ', Branch Name' + $('#branch_id_dropdown').val())
+            console.log(checkValue + ': ' + statusDropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData + ', Branch Name' + $('#branch_id_dropdown').val())
         } else {
-            console.log(checkValue + ': ' + dropdownValue)
+            console.log(checkValue + ': ' + statusDropdownValue)
         }
     }
 }

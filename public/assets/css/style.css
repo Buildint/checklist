@@ -1037,7 +1037,7 @@ font-size: 13px;
   display: none;
 }
 
-.atm-form .branch_id_dropdown .form-select, .atm-form .branch_name_dropdown .form-select{
+.atm-form .atm_id_dropdown .form-select2, .atm-form .atm_name_dropdown .form-select2{
   border:none;
   color: white;
 	padding:10px 20px;
