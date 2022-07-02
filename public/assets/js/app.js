@@ -138,6 +138,7 @@ function submitform(){
     var idarrayLength = idarray.length;
     console.log('Branch Code: ' + $('#code').val())
     console.log('Branch Name: ' + $('#code_name').val())
+    console.log($("#datetime").val())
 
     for(let i = 0; i <idarrayLength; i++){
         var checkValue = $('#' + idarray[i]).val()
