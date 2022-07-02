@@ -44,14 +44,15 @@ ref.on('value', function (snapshot){
 
 var checkboxes = $("input[type=checkbox]");
 var statusDropdowns = $("select[class=form-select]");
-var idDropdown = $("")
+var idDropdown = $(".atm_id_dropdown");
+var nameDropdown = $('.atm_name_dropdown')
+
 var d = [];
 var r = [];
 
 
 var idarrayb = $.map($('input[name="branch_check"]:checked'), function(c){return c.id; })
 var idarraybLength = idarrayb.length;
-console.log(idarrayb)
 for(let i = 0; i <idarraybLength; i++){
     $('#d' + idarrayb[i]).css('display', 'block')
 }
@@ -94,6 +95,24 @@ statusDropdowns.on("change", function(e){
     }
 })
 
+idDropdown.on("change", function(e){
+    var value = $(".form-select2").val()
+    ref.on("value", function (snapshot){
+        var did = snapshot.child(value).val()
+        document.getElementById('code_name').value = did
+    })
+})
+
+nameDropdown.on("change", function(e){
+    var value = $("#code_name").val()
+    console.log(value)
+    ref.on("value", function (snapshot){
+        var did = snapshot.val()
+        var didObj = Object.keys(did).find(key => did[key] ===value)
+        document.getElementById('code').value = didObj
+    })
+})
+
 
 function submitform2(){
     var idarray = $.map($('input[name="branch_check"]:checked'), function(c){return c.id; })
@@ -124,7 +143,7 @@ function submitform(){
         if(statusDropdownValue == 'Not Working') {
             var daysData = $('#days_d' + idarray[i]).val()
             var reasonData = $('#reason_d' + idarray[i]).val()
-            console.log(checkValue + ': ' + statusDropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData + ', Branch Name' + $('#branch_id_dropdown').val())
+            console.log(checkValue + ': ' + statusDropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData)
         } else {
             console.log(checkValue + ': ' + statusDropdownValue)
         }
