@@ -139,6 +139,7 @@ function submitform(){
     console.log('Branch Code: ' + $('#code').val())
     console.log('Branch Name: ' + $('#code_name').val())
     console.log($("#datetime").val())
+    var doc = new jsPDF();
 
     for(let i = 0; i <idarrayLength; i++){
         var checkValue = $('#' + idarray[i]).val()
@@ -151,6 +152,8 @@ function submitform(){
             console.log(checkValue + ': ' + statusDropdownValue)
         }
     }
+
+    doc.save("test.pdf")
 }
 
 function reset(){
