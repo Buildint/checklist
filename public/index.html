@@ -132,11 +132,14 @@
                         <div class="col-12">
                           <div class="group">
                               <input class="form-control" type="text" id="datetime" placeholder="Select Date"/>
-                            <script>
+                            <script type="text/javascript">
+                              var dateNow = new Date();
                               $('#datetime').datetimepicker({
                                   format: 'DD-MM-YYYY HH:mm',
                                   sideBySide:true,
                                   useCurrent: true,
+                                  locale: 'en',
+                                  defaultDate: dateNow
                               });
                              
                             </script>
