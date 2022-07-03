@@ -154,20 +154,11 @@ function submitform(){
         }
     }
 
-    // var doc = new jsPDF('p','pt','a4');
-    // var specialElementHandler = {
-    //     "#row":function(element, renderer){
-    //         return true;
-    //     }
-    // };
+    var doc = new jsPDF('p','pt','a4');
 
-    // doc.fromHTML($("#checklist-box").html(), 15, 15, {
-    //     "width":700,
-    //     "elementHandlers":specialElementHandler
-    // });
-    // doc.save("test.pdf")
-    window.print()
-
+    doc.addHTML(document.body, function(){
+        doc.save("test.pdf")
+    })
 }
 
 function reset(){
