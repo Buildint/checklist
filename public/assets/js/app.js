@@ -12,7 +12,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 var database = firebase.database();
-ref = database.ref("DID")
+ref = database.ref("ATMID")
 ref2 = database.ref("ATM")
 
 ref.on('value', function (snapshot){
