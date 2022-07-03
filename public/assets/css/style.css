@@ -263,7 +263,7 @@ section {
 .navbar .dropdown .dropdown:hover > ul {
   opacity: 1;
   top: 0;
-  left: 100%;
+  left: -100%;
   visibility: visible;
 }
 @media (max-width: 1366px) {
@@ -533,7 +533,7 @@ font-size: 13px;
   display: none;
 }
 
-.atm-form .atm_id_dropdown .form-select2, .atm-form .atm_name_dropdown .form-select2, #datetime{
+.atm-form .atm_id_dropdown .form-select2, .atm-form .atm_name_dropdown .form-select2, #datetime, #datetime2, .branch-form .branch_name_dropdown .form-select2, .branch-form .branch_id_dropdown .form-select2{
   border:none;
   color: white;
 	padding:10px 20px;

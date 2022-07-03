@@ -125,8 +125,8 @@
                   <div style="width: 30%; float:right; display: none;" class="img-logo-snip">
                     <img src="assets/img/logo.png" alt="" class="img-fluid">
                   </div>
-                  <input id="tab-1" type="radio" name="tab" class="atm" checked><label for="tab-1" class="tab">ATM</label>
-                  <input id="tab-2" type="radio" name="tab" class="branch"><label for="tab-2" class="tab">Branch</label>
+                  <input id="tab-1" type="radio" name="tab" class="atm"><label for="tab-1" class="tab">ATM</label>
+                  <input id="tab-2" type="radio" name="tab" class="branch" checked><label for="tab-2" class="tab">Branch</label>
                   <div class="checklist-space">
                     <div class="atm-form">
                       <div class="row">
@@ -495,15 +495,33 @@
 
                     <div class="branch-form">
                       <div class="row">
+
+                        <div class="col-12">
+                          <div class="group">
+                              <input class="form-control" type="text" id="datetime2" placeholder="Select Date"/>
+                            <script type="text/javascript">
+                              var dateNow = new Date();
+                              $('#datetime2').datetimepicker({
+                                  format: 'DD-MM-YYYY HH:mm',
+                                  sideBySide:true,
+                                  useCurrent: true,
+                                  locale: 'en',
+                                  defaultDate: dateNow
+                              });
+                             
+                            </script>
+                          </div>
+                        </div>
+
                         <div class="col-6">
                           <div class="group">
-                            <input id="name" type="text" class="input" placeholder="Branch name">
+                            <div id="branch_id_dropdown" class="branch_id_dropdown"></div>
                           </div>
                         </div>
   
                         <div class="col-6">
                           <div class="group">
-                            <input id="code" type="text" class="input" placeholder="Branch code">
+                            <div id="branch_name_dropdown" class="branch_name_dropdown"></div>
                           </div>
                         </div>
 

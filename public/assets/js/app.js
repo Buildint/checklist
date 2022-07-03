@@ -14,6 +14,7 @@ firebase.analytics();
 var database = firebase.database();
 ref = database.ref("ATMID")
 ref2 = database.ref("ATM")
+ref3 = database.ref("BRANCHID")
 
 ref.on('value', function (snapshot){
     var did = snapshot.val()
@@ -42,12 +43,39 @@ ref.on('value', function (snapshot){
     document.getElementById('atm_name_dropdown').innerHTML = html2
 })
 
+ref3.on('value', function (snapshot){
+    var did = snapshot.val()
+    var didObj = Object.keys(did)
+    var didObjValue = Object.values(did)
+    var didObjLength = didObj.length
+    var didObjValueLength = didObjValue.length
+    var html = '<div class=\"branch_id_dropdown\">'
+    html+='<select style=\"width:100%;\" id=\"branch_code\" class=\"form-select2\">'
+    for(let i=0; i<didObjLength; i++){
+        html+= '<option>'+didObj[i]+'</option>'
+    }
+    html+='</select>'
+    html+='</div>'
+    document.getElementById('branch_id_dropdown').innerHTML = html
 
+    // dropdown2
+
+    var html2 = '<div class=\"branch_name_dropdown\">'
+    html2+='<select style=\"width:100%;\" id=\"branch_code_name\" class=\"form-select2\">'
+    for(let i=0; i<didObjValueLength; i++){
+        html2+= '<option>'+didObjValue[i]+'</option>'
+    }
+    html2+='</select>'
+    html2+='</div>'
+    document.getElementById('branch_name_dropdown').innerHTML = html2
+})
 
 var checkboxes = $("input[type=checkbox]");
 var statusDropdowns = $("select[class=form-select]");
 var idDropdown = $(".atm_id_dropdown");
-var nameDropdown = $('.atm_name_dropdown')
+var branchidDropdown = $(".branch_id_dropdown");
+var nameDropdown = $('.atm_name_dropdown');
+var branchnameDropdown = $('.branch_name_dropdown');
 
 var d = [];
 var r = [];
@@ -97,7 +125,45 @@ statusDropdowns.on("change", function(e){
     }
 })
 
+branchidDropdown.on("change", function(e){
+    var value = $("#branch_code").val()
+    ref3.on("value", function (snapshot){
+        var did = snapshot.child(value).val()
+        document.getElementById('branch_code_name').value = did
+    })
 
+    // ref2.on('value', function (snapshot){
+    //     var atmname = $("#code_name").val()
+    //     var mangerName = snapshot.child(value).child(atmname).child("Manager Name").val()
+    //     var mangerContact = snapshot.child(value).child(atmname).child("Manager Contact").val()
+    //     var mangerEmail = snapshot.child(value).child(atmname).child("Manager Email").val()
+
+    //     document.getElementById('manager_name').value = mangerName
+    //     document.getElementById('contact').value = mangerContact
+    //     document.getElementById('email').value = mangerEmail
+        
+    // })
+})
+
+branchnameDropdown.on("change", function(e){
+    var branchname = $("#branch_code_name").val()
+    ref3.on("value", function (snapshot){
+        var did = snapshot.val()
+        var didObj = Object.keys(did).find(key => did[key] === branchname)
+        document.getElementById('branch_code').value = didObj
+    })
+
+    // ref2.on('value', function (snapshot){
+    //     var value = $("#code").val()
+    //     var mangerName = snapshot.child(value).child(atmname).child("Manager Name").val()
+    //     var mangerContact = snapshot.child(value).child(atmname).child("Manager Contact").val()
+    //     var mangerEmail = snapshot.child(value).child(atmname).child("Manager Email").val()
+    //     document.getElementById('manager_name').value = mangerName
+    //     document.getElementById('contact').value = mangerContact
+    //     document.getElementById('email').value = mangerEmail
+        
+    // })
+})
 
 idDropdown.on("change", function(e){
     var value = $("#code").val()
