@@ -133,13 +133,14 @@ function submitform2(){
 }
 
 function submitform(){
+    $(".branch-form").css('display', 'none')
+
     var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
     console.log(idarray)
     var idarrayLength = idarray.length;
     console.log('Branch Code: ' + $('#code').val())
     console.log('Branch Name: ' + $('#code_name').val())
     console.log($("#datetime").val())
-    var doc = new jsPDF();
 
     for(let i = 0; i <idarrayLength; i++){
         var checkValue = $('#' + idarray[i]).val()
@@ -153,7 +154,20 @@ function submitform(){
         }
     }
 
-    doc.save("test.pdf")
+    // var doc = new jsPDF('p','pt','a4');
+    // var specialElementHandler = {
+    //     "#row":function(element, renderer){
+    //         return true;
+    //     }
+    // };
+
+    // doc.fromHTML($("#checklist-box").html(), 15, 15, {
+    //     "width":700,
+    //     "elementHandlers":specialElementHandler
+    // });
+    // doc.save("test.pdf")
+    window.print()
+
 }
 
 function reset(){
