@@ -154,11 +154,28 @@ function submitform(){
         }
     }
 
-    var doc = new jsPDF('p','pt','a4');
+    // var doc = new jsPDF('p', 'pt', 'letter');
 
-    doc.addHTML(document.body, function(){
-        doc.save("test.pdf")
-    })
+    // doc.internal.scaleFactor = 1.0;
+
+    // doc.addHTML(document.body,0,0,{pagesplit:true}, function(){
+        
+    //     doc.save("test.pdf")
+    // })
+
+    var element = document.body;
+    var opt = {
+        margin:       1,
+        filename:     'myfile.pdf',
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'mm', format: 'a3', orientation: 'portrait' }
+      };
+
+    html2pdf(element, opt)
+    setTimeout(() => {
+        location.reload()
+    }, 1500);
 }
 
 function reset(){
