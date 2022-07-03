@@ -136,6 +136,8 @@ function submitform(){
     $(".branch-form").css('display', 'none')
     var element = document.getElementById("header");
     element.classList.remove("d-flex");
+    var element2 = $(".back-to-top");
+    element2.classList.remove("d-flex");
     $("#header").css('display', 'none')
     $(".back-to-top").css('display', 'none')
     $(".img-logo-snip").css('display', 'block')
