@@ -136,15 +136,14 @@ function submitform(){
     $(".branch-form").css('display', 'none')
     var element = document.getElementById("header");
     element.classList.remove("d-flex");
-    var element2 = $(".back-to-top");
-    element2.classList.remove("d-flex");
-    $("#header").css('display', 'none')
-    $(".back-to-top").css('display', 'none')
+    var element = document.getElementById("back-to-top");
+    element.classList.remove("d-flex");
     $(".img-logo-snip").css('display', 'block')
     $(".button").css('display', 'none')
     $('.section').css('padding', 0)
     $('.checklist-box').css('max-width', '70%')
-    
+    $(".back-to-top").css('display', 'none') 
+    $("#header").css('display', 'none')
 
     var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
     console.log(idarray)
