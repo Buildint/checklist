@@ -13,6 +13,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 var database = firebase.database();
 ref = database.ref("DID")
+ref2 = database.ref("ATM")
 
 ref.on('value', function (snapshot){
     var did = snapshot.val()
@@ -40,6 +41,7 @@ ref.on('value', function (snapshot){
     html2+='</div>'
     document.getElementById('atm_name_dropdown').innerHTML = html2
 })
+
 
 
 var checkboxes = $("input[type=checkbox]");
@@ -103,15 +105,37 @@ idDropdown.on("change", function(e){
         var did = snapshot.child(value).val()
         document.getElementById('code_name').value = did
     })
+
+    ref2.on('value', function (snapshot){
+        var atmname = $("#code_name").val()
+        var mangerName = snapshot.child(value).child(atmname).child("Manager Name").val()
+        var mangerContact = snapshot.child(value).child(atmname).child("Manager Contact").val()
+        var mangerEmail = snapshot.child(value).child(atmname).child("Manager Email").val()
+
+        document.getElementById('manager_name').value = mangerName
+        document.getElementById('contact').value = mangerContact
+        document.getElementById('email').value = mangerEmail
+        
+    })
 })
 
 nameDropdown.on("change", function(e){
-    var value = $("#code_name").val()
-    console.log(value)
+    var atmname = $("#code_name").val()
     ref.on("value", function (snapshot){
         var did = snapshot.val()
-        var didObj = Object.keys(did).find(key => did[key] ===value)
+        var didObj = Object.keys(did).find(key => did[key] ===atmname)
         document.getElementById('code').value = didObj
+    })
+
+    ref2.on('value', function (snapshot){
+        var value = $("#code").val()
+        var mangerName = snapshot.child(value).child(atmname).child("Manager Name").val()
+        var mangerContact = snapshot.child(value).child(atmname).child("Manager Contact").val()
+        var mangerEmail = snapshot.child(value).child(atmname).child("Manager Email").val()
+        document.getElementById('manager_name').value = mangerName
+        document.getElementById('contact').value = mangerContact
+        document.getElementById('email').value = mangerEmail
+        
     })
 })
 
@@ -146,11 +170,29 @@ function submitform(){
     $("#header").css('display', 'none')
 
     var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
-    console.log(idarray)
     var idarrayLength = idarray.length;
-    console.log('Branch Code: ' + $('#code').val())
-    console.log('Branch Name: ' + $('#code_name').val())
-    console.log($("#datetime").val())
+
+    var atmCode = $('#code').val()
+    var atmName = $('#code_name').val()
+    var subDateTime = $("#datetime").val()
+    var managerName = $("#manager_name").val()
+    var managerEmail = $("#email").val()
+    var managerContact = $("#contact").val()
+    var personName = $("#person_name").val()
+    var personContact = $("#person_contact").val()
+
+    if(managerName !== "") {
+        database.ref("ATM/").child(atmCode).child(atmName).child("Manager Name").set(managerName)
+    }
+
+    if(managerEmail !== "") {
+        database.ref("ATM/").child(atmCode).child(atmName).child("Manager Email").set(managerEmail)
+    }
+
+    if(managerContact !== "") {
+        database.ref("ATM/").child(atmCode).child(atmName).child("Manager Contact").set(managerContact)
+    }
+
 
     for(let i = 0; i <idarrayLength; i++){
         var checkValue = $('#' + idarray[i]).val()
@@ -158,9 +200,26 @@ function submitform(){
         if(statusDropdownValue == 'Not Working') {
             var daysData = $('#days_d' + idarray[i]).val()
             var reasonData = $('#reason_d' + idarray[i]).val()
-            console.log(checkValue + ': ' + statusDropdownValue + ', No. of Days: ' + daysData + ', Reason: ' + reasonData)
+            if(daysData === "" && reasonData === ""){
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child(checkValue).set(statusDropdownValue)
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child("Person Name").child(personName).set(personContact)
+            }
+            else if(daysData === "" && reasonData !== "") {
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child(checkValue).child(statusDropdownValue).child("Reason").set(reasonData)
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child("Person Name").child(personName).set(personContact)
+            }
+            else if(daysData !== "" && reasonData === ""){
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child(checkValue).child(statusDropdownValue).child("No of Days").set(daysData)
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child("Person Name").child(personName).set(personContact)
+            }
+            else if(daysData !== "" && reasonData !== ""){
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child(checkValue).child(statusDropdownValue).child("No of Days").set(daysData)
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child(checkValue).child(statusDropdownValue).child("Reason").set(reasonData)
+                database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child("Person Name").child(personName).set(personContact)
+            }
         } else {
-            console.log(checkValue + ': ' + statusDropdownValue)
+            database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child(checkValue).set(statusDropdownValue)
+            database.ref("ATM/").child(atmCode).child(atmName).child(subDateTime).child("Person Name").child(personName).set(personContact)
         }
     }
 
