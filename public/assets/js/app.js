@@ -176,7 +176,7 @@ function submitform(){
     html2pdf(element, opt)
     setTimeout(() => {
         location.reload()
-    }, 1500);
+    }, 3000);
 }
 
 function reset(){
