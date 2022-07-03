@@ -134,6 +134,15 @@ function submitform2(){
 
 function submitform(){
     $(".branch-form").css('display', 'none')
+    var element = document.getElementById("header");
+    element.classList.remove("d-flex");
+    $("#header").css('display', 'none')
+    $(".back-to-top").css('display', 'none')
+    $(".img-logo-snip").css('display', 'block')
+    $(".button").css('display', 'none')
+    $('.section').css('padding', 0)
+    $('.checklist-box').css('max-width', '70%')
+    
 
     var idarray = $.map($('input[name="atm_check"]:checked'), function(c){return c.id; })
     console.log(idarray)
@@ -154,19 +163,11 @@ function submitform(){
         }
     }
 
-    // var doc = new jsPDF('p', 'pt', 'letter');
-
-    // doc.internal.scaleFactor = 1.0;
-
-    // doc.addHTML(document.body,0,0,{pagesplit:true}, function(){
-        
-    //     doc.save("test.pdf")
-    // })
 
     var element = document.body;
     var opt = {
         margin:       1,
-        filename:     'myfile.pdf',
+        filename:     $('#code').val() + " " + $('#code_name').val() + " " + $("#datetime").val(),
         image:        { type: 'jpeg', quality: 1 },
         html2canvas:  { scale: 2 },
         jsPDF:        { unit: 'mm', format: 'a3', orientation: 'portrait' }
